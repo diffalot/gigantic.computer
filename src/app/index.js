@@ -50,7 +50,6 @@ function init () {
   document.body.appendChild(image)
 
   var texture = new THREE.Texture(image)
-  texture.minFilter = THREE.NearestFilter
   image.addEventListener('load', function (event) { texture.needsUpdate = true })
 
   var material = new THREE.MeshPhongMaterial({
@@ -93,4 +92,4 @@ function render () {
   renderer.render(scene, camera)
 }
 
-image.src = require('../images/world.topo.bathy.200412.3x5400x2700.jpg')
+image.src = require('../images/world.jpg')
