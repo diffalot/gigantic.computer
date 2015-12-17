@@ -24,7 +24,7 @@ lint: node_modules
 	$(STANDARD)
 
 watch: clean static
-	$(WEBPACK_DEV_SERVER) --debug --devtool source-map --output-pathinfo --progress --watch --content-base $(TARGET_DIR)/
+	$(WEBPACK_DEV_SERVER) --debug --devtool source-map --output-pathinfo --progress --watch --inline --content-base $(TARGET_DIR)/
 
 $(TARGET_DIR): lint clean static
 	$(WEBPACK) --optimize-minimize
