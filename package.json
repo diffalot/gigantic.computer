@@ -1,0 +1,20 @@
+{
+  "name": "sees.earth",
+  "version": "0.0.0",
+  "description": "a threejs view of earth",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.diff.mx/diffalot/sees.earth.git"
+  },
+  "author": "Andrew Davis <diffalot@diff.mx>",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "standard": "^5.4.1",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  }
+}
