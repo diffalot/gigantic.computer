@@ -1,7 +1,6 @@
-console.log('hello world')
-var THREE = require('three')
-console.log(THREE)
+require('../style.css')
 
+var THREE = require('three')
 var OrbitControls = require('three-orbit-controls')(THREE)
 
 // MatCap-style image rendered on a sphere
@@ -47,12 +46,11 @@ function init () {
   var light = new THREE.PointLight(0xffffff, 1)
   camera.add(light)
 
-  /*
   image = document.createElement('img')
   document.body.appendChild(image)
-  */
 
   var texture = new THREE.Texture(image)
+  texture.minFilter = THREE.NearestFilter
   image.addEventListener('load', function (event) { texture.needsUpdate = true })
 
   var material = new THREE.MeshPhongMaterial({

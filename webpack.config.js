@@ -1,10 +1,23 @@
+var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+
 module.exports = {
   context: __dirname + '/src/app',
-  entry: './index.js',
+  entry: {
+    app: './index.js',
+    vendor: [
+      'three',
+      'three-orbit-controls'
+    ]
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.js'),
+    new ExtractTextPlugin('style.css')
+  ],
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
-    filename: 'webpack.js'
+    filename: 'app.js'
   },
   module: {
     loaders: [
@@ -15,15 +28,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style!css'
-      },
-      {
-        test: /\.scss$/,
-        loader: 'style!css!sass'
-      },
-      {
-        test: /\.template.html$/,
-        loader: 'raw'
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },
       {
         test: /\.md$/,
