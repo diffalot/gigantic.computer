@@ -2,14 +2,15 @@ module.exports = {
   context: __dirname + '/src/app',
   entry: './index.js',
   output: {
-    path: __dirname + '/dist/app',
-    filename: 'angular-webpack.js'
+    path: __dirname + '/dist',
+    publicPath: '/',
+    filename: 'webpack.js'
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['ng-annotate', 'babel'],
+        loaders: [],
         exclude: /node_modules/
       },
       {
