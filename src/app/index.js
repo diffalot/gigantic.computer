@@ -47,8 +47,10 @@ function init () {
   var light = new THREE.PointLight(0xffffff, 1)
   camera.add(light)
 
+  /*
   image = document.createElement('img')
   document.body.appendChild(image)
+  */
 
   var texture = new THREE.Texture(image)
   image.addEventListener('load', function (event) { texture.needsUpdate = true })
