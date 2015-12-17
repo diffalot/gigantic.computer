@@ -28,6 +28,10 @@ module.exports = {
       {
         test: /\.md$/,
         loader: 'raw'
+      },
+      {
+        test: /\.jpg$/,
+        loader: 'url'
       }
     ]
   }
