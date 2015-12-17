@@ -20,11 +20,11 @@ index:
 	mkdir -p $(TARGET_DIR)
 	cp ./src/index.html $(TARGET_DIR)
 
-lint: node_modules
+lint:
 	$(STANDARD)
 
 watch: clean static
-	$(WEBPACK_DEV_SERVER) --debug --devtool source-map --output-pathinfo --progress --watch --inline --content-base $(TARGET_DIR)/
+	$(WEBPACK_DEV_SERVER) --debug --devtool source-map --output-pathinfo --progress --watch --host 0.0.0.0 --inline --hot --content-base $(TARGET_DIR)/
 
 $(TARGET_DIR): lint clean static
 	$(WEBPACK) --optimize-minimize
