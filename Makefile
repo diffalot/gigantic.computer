@@ -5,11 +5,15 @@ TARGET_DIR = dist
 WEBPACK = ./node_modules/.bin/webpack
 WEBPACK_DEV_SERVER = ./node_modules/.bin/webpack-dev-server
 STANDARD = ./node_modules/.bin/standard
+SURGE = ./node_modules/.bin/surge
 NPM = npm
 
 .PHONY: dist clean watch node_modules
 
 build: $(TARGET_DIR)
+
+deploy: build
+	$(SURGE) -p dist -d sees.earth
 
 clean:
 	rm -rf $(TARGET_DIR)
