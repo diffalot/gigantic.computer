@@ -4,7 +4,12 @@
   "description": "a threejs view of earth",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server dist -p 8080",
+    "dev": "webpack-dev-server",
+    "static": "mkdir -p dist && cp src/index.html dist",
+    "build": "npm run static && webpack",
+    "lint": "standard",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -21,10 +26,11 @@
     "surge": "^0.17.4",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
-  },
-  "dependencies": {
+    "webpack-dev-server": "^1.14.0",
     "three": "^0.73.0",
     "three-orbit-controls": "^72.0.0"
+  },
+  "dependencies": {
+    "http-server": "^0.9.0"
   }
 }
