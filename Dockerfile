@@ -1,6 +1,6 @@
-# if npm is not needed
-# FROM mhart/alpine-node:base-6
-FROM mhart/alpine-node:6
+FROM mhart/alpine-node:base-6
+# if npm is needed
+# FROM mhart/alpine-node:6
 
 WORKDIR /src
 ADD . .
@@ -11,5 +11,9 @@ ADD . .
 # If you need npm, don't use a base tag
 # RUN npm install
 
-EXPOSE 8080
-CMD ["npm", "start"]
+ENV NODE_ENV production
+ENV PORT 80
+
+EXPOSE 80
+EXPOSE 443
+CMD ["node", "index.js"]
