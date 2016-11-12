@@ -24,6 +24,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+properties([[$class: 'GitLabConnectionProperty', gitLabConnection: '<your-gitlab-connection-name']])
+
 node('jnlp-slave') {
 
     currentBuild.result = "SUCCESS"
@@ -40,19 +42,22 @@ node('jnlp-slave') {
        }
 
        stage('NPM Install') {
+            gitlabCommitStatus("build") {
+                env.NODE_ENV = "development"
 
-            env.NODE_ENV = "development"
-
-            sh 'node -v'
-            sh 'npm prune'
-            sh 'npm install'
+                sh 'node -v'
+                sh 'npm prune'
+                sh 'npm install'
+            }
        }
 
        stage('Test') {
-
-            env.NODE_ENV = "test"
-            sh 'npm test'
+            gitlabCommitStatus("test") {
+                env.NODE_ENV = "test"
+                sh 'npm test'
+            }
        }
+
        switch (env.BRANCH_NAME) {
             case 'master':
                  stage('Build Frontend') {
