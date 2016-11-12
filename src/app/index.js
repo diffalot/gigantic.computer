@@ -13,19 +13,6 @@ init()
 animate()
 
 function init () {
-  var info = document.createElement('div')
-  info.style.position = 'absolute'
-  info.style.top = '30px'
-  info.style.width = '100%'
-  info.style.textAlign = 'center'
-  info.style.color = '#fff'
-  info.style.fontWeight = 'bold'
-  info.style.backgroundColor = 'transparent'
-  info.style.zIndex = '1'
-  info.style.fontFamily = 'Monospace'
-  info.innerHTML = 'Drag mouse to rotate camera; scroll to zoom'
-  document.body.appendChild(info)
-
   renderer = new THREE.WebGLRenderer()
   renderer.setSize(window.innerWidth, window.innerHeight)
   document.body.appendChild(renderer.domElement)
@@ -47,6 +34,7 @@ function init () {
   camera.add(light)
 
   image = document.createElement('img')
+  image.style.display = 'none'
   document.body.appendChild(image)
 
   var texture = new THREE.Texture(image)

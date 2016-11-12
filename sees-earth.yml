@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sees-earth
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: sees-earth
+    spec:
+      containers:
+      - name: sees-earth
+        image: 541790730179.dkr.ecr.us-east-1.amazonaws.com/sees-earth:latest
+        volumeMounts:
+          - name: certs
+            mountPath: /src/certs
+        ports:
+          - name: http
+            containerPort: 80
+          - name: tls
+            containerPort: 443
+      volumes:
+        - name: certs
+          secret:
+            secretName: gigantic.computer
