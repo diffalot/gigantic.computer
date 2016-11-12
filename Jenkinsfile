@@ -53,27 +53,29 @@ node('jnlp-slave') {
             env.NODE_ENV = "test"
             sh 'npm test'
        }
+       switch (env.BRANCH_NAME) {
+            case 'master':
+                 stage('Build Frontend') {
 
-       stage('Build Frontend') {
+                      env.NODE_ENV = "production"
+                      sh 'npm run build'
+                 }
 
-            env.NODE_ENV = "production"
-            sh 'npm run build'
-       }
+                 stage('Build Docker') {
 
-       stage('Build Docker') {
+                      sh 'npm prune --production'
 
-            sh 'npm prune --production'
+                      sh '$(aws ecr get-login --region=us-east-1)'
 
-            sh '$(aws ecr get-login --region=us-east-1)'
+                      docker.withRegistry("https://541790730179.dkr.ecr.us-east-1.amazonaws.com") {
+                          docker.build("sees-earth:${env.BUILD_TAG}").push()
+                      }
+                 }
 
-            docker.withRegistry("https://541790730179.dkr.ecr.us-east-1.amazonaws.com") {
-                docker.build("sees-earth:${env.BUILD_TAG}").push()
-            }
-       }
-
-       stage('Deploy Docker') {
-            sh "kubectl set image deployment/sees-earth sees-earth=541790730179.dkr.ecr.us-east-1.amazonaws.com/sees-earth:${env.BUILD_TAG} --namespace=gigantic-computer"
-            sh 'kubectl rollout status deployment/sees-earth --namespace=gigantic-computer'
+                 stage('Deploy Docker') {
+                      sh "kubectl set image deployment/sees-earth sees-earth=541790730179.dkr.ecr.us-east-1.amazonaws.com/sees-earth:${env.BUILD_TAG} --namespace=gigantic-computer"
+                      sh 'kubectl rollout status deployment/sees-earth --namespace=gigantic-computer'
+                 }
        }
 
     }
