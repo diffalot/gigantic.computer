@@ -24,7 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-properties([[$class: 'GitLabConnectionProperty', gitLabConnection: 'git-diff-mx']])
+properties([[$class: 'GitLabConnectionProperty', gitLabConnection: 'gitlab.gigantic.computer']])
 
 node('jnlp-slave') {
 
@@ -34,15 +34,13 @@ node('jnlp-slave') {
 
     try {
 
-       stage('Checkout') {
+        gitlabCommitStatus("dependency installation") {
+         stage('git checkout') {
 
-            sh 'kubectl version'
+              checkout scm
+         }
 
-            checkout scm
-       }
-
-       stage('NPM Install') {
-            gitlabCommitStatus("build") {
+         stage('npm install') {
                 env.NODE_ENV = "development"
 
                 sh 'node -v'
@@ -51,7 +49,7 @@ node('jnlp-slave') {
             }
        }
 
-       stage('Test') {
+       stage('test') {
             gitlabCommitStatus("test") {
                 env.NODE_ENV = "test"
                 sh 'npm test'
@@ -60,27 +58,29 @@ node('jnlp-slave') {
 
        switch (env.BRANCH_NAME) {
             case 'master':
-                 stage('Build Frontend') {
+                 gitlabCommitStatus("deploy to production") {
+                     stage('frontend build') {
 
-                      env.NODE_ENV = "production"
-                      sh 'npm run build'
-                 }
+                          env.NODE_ENV = "production"
+                          sh 'npm run build'
+                     }
 
-                 stage('Build Docker') {
+                     stage('docker build') {
 
-                      sh 'npm prune --production'
+                          sh 'npm prune --production'
 
-                      sh '$(aws ecr get-login --region=us-east-1)'
+                          sh '$(aws ecr get-login --region=us-east-1)'
 
-                      docker.withRegistry("https://541790730179.dkr.ecr.us-east-1.amazonaws.com") {
-                          docker.build("sees-earth:${env.BUILD_TAG}").push()
-                      }
-                 }
+                          docker.withRegistry("https://541790730179.dkr.ecr.us-east-1.amazonaws.com") {
+                              docker.build("sees-earth:${env.BUILD_TAG}").push()
+                          }
+                     }
 
-                 stage('Deploy Docker') {
-                      sh "kubectl set image deployment/sees-earth sees-earth=541790730179.dkr.ecr.us-east-1.amazonaws.com/sees-earth:${env.BUILD_TAG} --namespace=gigantic-computer"
-                      sh 'kubectl rollout status deployment/sees-earth --namespace=gigantic-computer'
-                 }
+                     stage('deploy') {
+                          sh "kubectl set image deployment/sees-earth sees-earth=541790730179.dkr.ecr.us-east-1.amazonaws.com/sees-earth:${env.BUILD_TAG} --namespace=gigantic-computer"
+                          sh 'kubectl rollout status deployment/sees-earth --namespace=gigantic-computer'
+                     }
+                }
        }
 
     }
