@@ -7,7 +7,7 @@
     "start": "node index.js",
     "dev": "webpack-dev-server",
     "static": "mkdir -p dist && cp src/index.html dist",
-    "build": "npm run static && webpack",
+    "build": "npm run static && webpack --optimize-minimize --optimize-occurence-order",
     "dockerize": "npm run build && docker build .",
     "lint": "standard",
     "test": "npm run lint"
