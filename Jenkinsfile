@@ -24,7 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-properties([[$class: 'GitLabConnectionProperty', gitLabConnection: 'git-diff-mx']])
+properties([[$class: 'GitLabConnectionProperty', gitLabConnection: 'gitlab.gigantic.computer']])
 
 node('jnlp-slave') {
 
