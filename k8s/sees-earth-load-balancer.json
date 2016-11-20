@@ -2,7 +2,8 @@
   "kind": "Service",
   "apiVersion": "v1",
   "metadata": {
-    "name": "sees-earth"
+    "name": "sees-earth",
+    "namespace": "gigantic-computer"
   },
   "spec": {
     "ports": [{

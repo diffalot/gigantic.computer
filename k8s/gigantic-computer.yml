@@ -1,0 +1,9 @@
+apiVersion: "stable.k8s.psg.io/v1"
+kind: "Certificate"
+metadata:
+  name: "gigantic-computer"
+  namespace: gigantic-computer
+spec:
+  domain: "gigantic.computer"
+  email: "admin@gigantic.computer"
+  provider: "route53"
