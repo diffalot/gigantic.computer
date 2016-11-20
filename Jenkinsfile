@@ -36,8 +36,6 @@ node('jnlp-slave') {
 
        stage('Checkout') {
 
-            sh 'kubectl version'
-
             checkout scm
        }
 
