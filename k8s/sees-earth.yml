@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: sees-earth
+  namespace: gigantic-computer
 spec:
   replicas: 2
   template:
@@ -11,7 +12,7 @@ spec:
     spec:
       containers:
       - name: sees-earth
-        image: 541790730179.dkr.ecr.us-east-1.amazonaws.com/sees-earth:latest
+        image: 541790730179.dkr.ecr.us-east-1.amazonaws.com/sees-earth:jenkins-sees.earth-master-3
         volumeMounts:
           - name: certs
             mountPath: /src/certs
