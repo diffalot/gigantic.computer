@@ -35,7 +35,7 @@ node('jnlp-slave') {
     try {
 
         gitlabCommitStatus("dependency installation") {
-         stage('npm install') {
+         stage('git checkout') {
 
               checkout scm
          }
