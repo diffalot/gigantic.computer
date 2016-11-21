@@ -26,7 +26,7 @@ THE SOFTWARE.
 
 properties([[$class: 'GitLabConnectionProperty', gitLabConnection: 'gitlab.gigantic.computer']])
 
-node('jnlp-slave') {
+node('jenkins-minion') {
 
     currentBuild.result = "SUCCESS"
 
