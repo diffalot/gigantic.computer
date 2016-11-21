@@ -12,16 +12,7 @@ spec:
     spec:
       containers:
       - name: sees-earth
-        image: 541790730179.dkr.ecr.us-east-1.amazonaws.com/sees-earth:jenkins-sees.earth-master-3
-        volumeMounts:
-          - name: certs
-            mountPath: /src/certs
+        image: 541790730179.dkr.ecr.us-east-1.amazonaws.com/sees-earth
         ports:
           - name: http
             containerPort: 80
-          - name: tls
-            containerPort: 443
-      volumes:
-        - name: certs
-          secret:
-            secretName: gigantic.computer
