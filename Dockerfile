@@ -15,5 +15,4 @@ ENV NODE_ENV production
 ENV PORT 80
 
 EXPOSE 80
-EXPOSE 443
 CMD ["node", "index.js"]
