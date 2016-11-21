@@ -1,18 +1,2 @@
-FROM mhart/alpine-node:base-6
-# if npm is needed
-# FROM mhart/alpine-node:6
-
-WORKDIR /src
-ADD . .
-
-# If you have native dependencies, you'll need extra tools
-# RUN apk add --no-cache make gcc g++ python
-
-# If you need npm, don't use a base tag
-# RUN npm install
-
-ENV NODE_ENV production
-ENV PORT 80
-
-EXPOSE 80
-CMD ["node", "index.js"]
+FROM nginx:alpine
+ADD dist /usr/share/nginx/html
