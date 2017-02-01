@@ -34,7 +34,7 @@ function init () {
   camera.add(light)
 
   image = document.createElement('img')
-  image.style.display = 'none'
+  // image.style.display = 'none'
   document.body.appendChild(image)
 
   var texture = new THREE.Texture(image)
