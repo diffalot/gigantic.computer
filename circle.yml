@@ -1,4 +1,3 @@
-
 machine:
   timezone: America/New_York
   node:
@@ -11,3 +10,13 @@ dependencies:
 test:
   override:
     - npm test
+
+compile:
+  override:
+    - npm run build
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - npm run deploy:ci
