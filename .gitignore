@@ -1,3 +1,5 @@
 node_modules
 
+client_secrets.json
+
 dist

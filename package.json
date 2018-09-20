@@ -1,5 +1,6 @@
 {
-  "name": "sees.earth",
+  "name": "gigantic.computer",
+  "private": "true",
   "version": "0.0.0",
   "description": "a threejs view of earth",
   "main": "index.js",
@@ -8,9 +9,6 @@
     "dev": "webpack-dev-server",
     "static": "mkdir -p dist && cp src/index.html dist",
     "build": "npm run static && webpack --optimize-minimize --optimize-occurence-order",
-    "deploy": "now --static dist --alias gigantic.computer",
-    "deploy:ci": "now --token $NOW_TOKEN --static dist --alias gigantic.computer",
-    "dockerize": "npm run build && docker build .",
     "lint": "standard",
     "test": "npm run lint"
   },
@@ -25,7 +23,6 @@
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.5",
     "koa-logger": "^2.0.0",
-    "now": "^4.0.1",
     "standard": "^5.4.1",
     "style-loader": "^0.13.0",
     "surge": "^0.17.4",

@@ -1,18 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: sees-earth
-  namespace: gigantic-computer
+  name: $K8S_NAME
 spec:
   replicas: 2
   template:
     metadata:
       labels:
-        run: sees-earth
+        run: $K8S_NAME
     spec:
       containers:
-      - name: sees-earth
-        image: 541790730179.dkr.ecr.us-east-1.amazonaws.com/sees-earth
+      - name: $K8S_NAME
+        image: gcr.io/$GOOGLE_PROJECT/$K8S_NAME:$TRAVIS_COMMIT
         ports:
           - name: http
             containerPort: 80
