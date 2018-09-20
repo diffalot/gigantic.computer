@@ -52,6 +52,7 @@ before_deploy:
 deploy:
   on:
     branch: master
+  skip_cleanup: true
   provider: script
   script: docker build -t gcr.io/${GOOGLE_PROJECT}/${K8S_NAME}:$TRAVIS_COMMIT . &&
     docker push gcr.io/${GOOGLE_PROJECT}/${K8S_NAME}:$TRAVIS_COMMIT &&
