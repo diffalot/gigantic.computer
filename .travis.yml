@@ -53,9 +53,8 @@ deploy:
   on:
     branch: master
   provider: script
-  script:
-  - docker build -t gcr.io/${GOOGLE_PROJECT}/${K8S_NAME}:$TRAVIS_COMMIT .
-  - docker push gcr.io/${GOOGLE_PROJECT}/${K8S_NAME}:$TRAVIS_COMMIT
-  - envsubst < ./k8s/deployment.yaml | kubectl apply -f -
-  - kubectl expose deployment $K8S_NAME --port $PORT || true
-  - envsubst < ./k8s/ingress.yaml | kubectl apply -f -
+  script: docker build -t gcr.io/${GOOGLE_PROJECT}/${K8S_NAME}:$TRAVIS_COMMIT . &&
+    docker push gcr.io/${GOOGLE_PROJECT}/${K8S_NAME}:$TRAVIS_COMMIT &&
+    envsubst < ./k8s/deployment.yaml | kubectl apply -f - &&
+    kubectl expose deployment $K8S_NAME --port $PORT || true &&
+    envsubst < ./k8s/ingress.yaml | kubectl apply -f -
