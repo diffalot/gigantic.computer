@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html",
+    "build": "rm -rf dist && parcel build src/index.html",
     "lint": "standard",
     "test": "npm run lint"
   },
