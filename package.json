@@ -5,36 +5,26 @@
   "description": "a threejs view of earth",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "webpack-dev-server",
-    "static": "mkdir -p dist && cp src/index.html dist",
-    "build": "npm run static && webpack --optimize-minimize --optimize-occurence-order",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
     "lint": "standard",
     "test": "npm run lint"
   },
   "repository": {
     "type": "git",
-    "url": "https://git.diff.mx/diffalot/sees.earth.git"
+    "url": "https://github.com/diffalot/sees.earth.git"
   },
-  "author": "Andrew Davis <diffalot@diff.mx>",
+  "author": "Alice Davis <alice@gigantic.computer",
   "license": "GPL-3.0",
+  "pre-commit": [
+    "test"
+  ],
   "devDependencies": {
-    "css-loader": "^0.23.0",
-    "extract-text-webpack-plugin": "^0.9.1",
-    "file-loader": "^0.8.5",
-    "koa-logger": "^2.0.0",
-    "standard": "^5.4.1",
-    "style-loader": "^0.13.0",
-    "surge": "^0.17.4",
+    "parcel-bundler": "^1.10.3",
+    "pre-commit": "^1.2.2",
+    "standard": "^12.0.1",
     "three": "^0.73.0",
-    "three-orbit-controls": "^72.0.0",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "three-orbit-controls": "^72.0.0"
   },
-  "dependencies": {
-    "koa": "^2.0.0",
-    "koa-logger": "^2.0.0",
-    "koa-static": "^3.0.0"
-  }
+  "dependencies": {}
 }
