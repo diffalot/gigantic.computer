@@ -21,7 +21,7 @@ env:
   - PORT=80
 
 script:
-- npm run build
+- npm run test:ci
 
 before_deploy:
 - if [ ! -d $HOME/google-cloud-sdk/bin ]; then

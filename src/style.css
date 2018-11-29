@@ -1,13 +1,7 @@
 body {
-	background-color: #000;
+	  background-color: #000;
+    color: #fff;
 	margin: 0px;
 	overflow: hidden;
 }
-img {
-	width: 128px;
-	height: 64px;
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	z-index: 1;
-}
+
