@@ -1,1 +1,1 @@
-import './globe'
+// import './globe'
