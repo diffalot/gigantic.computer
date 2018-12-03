@@ -58,6 +58,6 @@ export default class Menu extends Component {
    */
   createElement (items) {
     console.log(this.state)
-    return html`<div>words</div><ul><li>thing one</li><li>thing two</li></ul>`
+    return html`<ul><li>thing one</li><li>thing two</li></ul>`
   }
 }
