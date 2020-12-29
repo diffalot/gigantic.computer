@@ -6,15 +6,10 @@
     <link rel="stylesheet" href="/index.css">
   </head>
   <body>
-    <div class="flex flex-col h-screen w-screen z-10 absolute">
-      <div class="flex-grow flex flex-col justify-around">
-        <h1 class="text-white text-6xl place-self-center">gigantic.computer</h1>
-      </div>
-      <div class="flex-grow flex flex-col justify-around">
-        <p class="text-white place-self-center">
-          visit <a href="https://diff.mx">diff.mx</a> for <span>content</span>
-        </p>
-      </div>
+    <div class="z-10 absolute h-screen w-screen">
+      <a class="block flex flex-col h-screen w-screen flex-grow flex flex-col justify-around" href="https://diff.mx/">
+        <h1 class="text-white text-3xl place-self-center">gigantic.computer</h1>
+      </a>
     </div>
     <canvas id="fog" class="h-screen w-screen absolute z-0"></canvas>
     <script type="module" src="/index.js"></script>

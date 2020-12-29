@@ -1,7 +1,7 @@
 {
   "inputs": {
     "index.css": {
-      "bytes": 10476,
+      "bytes": 10513,
       "imports": []
     },
     "web_modules/three.js": {
@@ -22,10 +22,10 @@
       "imports": [],
       "inputs": {
         "index.css": {
-          "bytesInOutput": 3188
+          "bytesInOutput": 3216
         }
       },
-      "bytes": 3189
+      "bytes": 3217
     },
     "../node_modules/.cache/snowpack/~~bundle~~/index.js": {
       "imports": [],
