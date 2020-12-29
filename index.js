@@ -26,12 +26,12 @@ function main() {
   const boxDepth = 1;
   const geometry = new BoxGeometry(boxWidth, boxHeight, boxDepth);
 
-  const material = new MeshPhongMaterial({ color: 0x44aa88 });
+  const material = new MeshPhongMaterial({ color: 0x44dd88 });
   const cube = new Mesh(geometry, material);
   scene.add(cube);
 
   const color = 0xffffff;
-  const intensity = 0.5;
+  const intensity = 1.8;
   const light = new DirectionalLight(color, intensity);
   light.position.set(-1, 2, 4);
   scene.add(light);
