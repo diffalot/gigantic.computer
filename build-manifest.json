@@ -1,0 +1,44 @@
+{
+  "inputs": {
+    "index.css": {
+      "bytes": 10263,
+      "imports": []
+    },
+    "web_modules/canvas-confetti.js": {
+      "bytes": 16303,
+      "imports": []
+    },
+    "index.js": {
+      "bytes": 186,
+      "imports": [
+        {
+          "path": "web_modules/canvas-confetti.js"
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "../node_modules/.cache/snowpack/~~bundle~~/index.css": {
+      "imports": [],
+      "inputs": {
+        "index.css": {
+          "bytesInOutput": 3027
+        }
+      },
+      "bytes": 3028
+    },
+    "../node_modules/.cache/snowpack/~~bundle~~/index.js": {
+      "imports": [],
+      "exports": [],
+      "inputs": {
+        "web_modules/canvas-confetti.js": {
+          "bytesInOutput": 7167
+        },
+        "index.js": {
+          "bytesInOutput": 101
+        }
+      },
+      "bytes": 7269
+    }
+  }
+}
