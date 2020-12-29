@@ -5,7 +5,7 @@
       "imports": []
     },
     "index.js": {
-      "bytes": 22,
+      "bytes": 7,
       "imports": []
     }
   },
@@ -22,12 +22,8 @@
     "../node_modules/.cache/snowpack/~~bundle~~/index.js": {
       "imports": [],
       "exports": [],
-      "inputs": {
-        "index.js": {
-          "bytesInOutput": 21
-        }
-      },
-      "bytes": 22
+      "inputs": {},
+      "bytes": 0
     }
   }
 }
