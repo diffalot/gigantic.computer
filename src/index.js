@@ -36,8 +36,27 @@ function main() {
   light.position.set(-1, 2, 4);
   scene.add(light);
 
+  function resizeCanvasToDisplaySize() {
+    const canvas = renderer.domElement;
+    // look up the size the canvas is being displayed
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+
+    // adjust displayBuffer size to match
+    if (canvas.width !== width || canvas.height !== height) {
+      // you must pass false here or three.js sadly fights the browser
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+
+      // update any render target sizes here
+    }
+  }
+
   function render(time) {
     time *= 0.001; // convert time to seconds
+
+    resizeCanvasToDisplaySize();
 
     cube.rotation.x = time;
     cube.rotation.y = time;
