@@ -31,7 +31,7 @@ function main() {
   scene.add(cube);
 
   const color = 0xffffff;
-  const intensity = 1;
+  const intensity = 0.5;
   const light = new DirectionalLight(color, intensity);
   light.position.set(-1, 2, 4);
   scene.add(light);
