@@ -4,7 +4,7 @@ import {
   WebGLRenderer,
   Scene,
   BoxGeometry,
-  MeshBasicMaterial,
+  MeshPhongMaterial,
   Mesh,
 } from "./web_modules/three.js";
 
@@ -26,7 +26,7 @@ function main() {
   const boxDepth = 1;
   const geometry = new BoxGeometry(boxWidth, boxHeight, boxDepth);
 
-  const material = new MeshBasicMaterial({ color: 0x44aa88 });
+  const material = new MeshPhongMaterial({ color: 0x44aa88 });
   const cube = new Mesh(geometry, material);
   scene.add(cube);
 
