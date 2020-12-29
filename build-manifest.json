@@ -4,17 +4,9 @@
       "bytes": 10263,
       "imports": []
     },
-    "web_modules/canvas-confetti.js": {
-      "bytes": 16303,
-      "imports": []
-    },
     "index.js": {
-      "bytes": 186,
-      "imports": [
-        {
-          "path": "web_modules/canvas-confetti.js"
-        }
-      ]
+      "bytes": 22,
+      "imports": []
     }
   },
   "outputs": {
@@ -31,14 +23,11 @@
       "imports": [],
       "exports": [],
       "inputs": {
-        "web_modules/canvas-confetti.js": {
-          "bytesInOutput": 7167
-        },
         "index.js": {
-          "bytesInOutput": 101
+          "bytesInOutput": 21
         }
       },
-      "bytes": 7269
+      "bytes": 22
     }
   }
 }
