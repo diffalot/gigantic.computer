@@ -31,6 +31,10 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: yarn build
+        run: yarn build
+  deploy:
+    steps:
+      - name: debug
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          ls -alh build
+          du -ch build
