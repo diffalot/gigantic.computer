@@ -13,11 +13,11 @@ function main() {
   const renderer = new WebGLRenderer({ canvas });
 
   const fov = 75;
-  const aspect = 2; // the canvas default
-  const near = 0.1;
-  const far = 5;
+  const aspect = 1; // the canvas default
+  const near = 0.5;
+  const far = 10;
   const camera = new PerspectiveCamera(fov, aspect, near, far);
-  camera.position.z = 2;
+  camera.position.z = 3;
 
   const scene = new Scene();
 
