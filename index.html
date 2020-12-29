@@ -4,14 +4,9 @@
     <meta name="description" content="Starter Snowpack App">
     <title>gigantic.computer</title>
     <link rel="stylesheet" href="/index.css">
-
-    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-    <script src="../../dist/aframe-particle-system-component.min.js"></script>
-
-    <script type="module" src="/index.js"></script>
   </head>
   <body>
-    <div class="flex flex-col h-screen bg-black">
+    <div class="flex flex-col h-screen z-10 bg-white">
       <div class="flex-grow flex flex-col justify-around">
         <h1 class="text-white text-6xl place-self-center">gigantic.computer</h1>
       </div>
@@ -21,12 +16,8 @@
         </p>
       </div>
     </div>
-
-    <a-scene>
-      <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 5000"></a-entity>
-      <a-light type="directional" color="#fff" intensity="0.2" position="-1 2 1"></a-light>
-      <a-light type="ambient" color="#fff"></a-light>
-    </a-scene>
+    <canvas id="fog" class="h-screen w-screen absolute z-0"></canvas>
+    <script type="module" src="/index.js"></script>
   
 
 </body></html>

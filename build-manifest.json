@@ -1,12 +1,20 @@
 {
   "inputs": {
     "index.css": {
-      "bytes": 10452,
+      "bytes": 10576,
+      "imports": []
+    },
+    "web_modules/three.js": {
+      "bytes": 1048690,
       "imports": []
     },
     "index.js": {
-      "bytes": 7,
-      "imports": []
+      "bytes": 1160,
+      "imports": [
+        {
+          "path": "web_modules/three.js"
+        }
+      ]
     }
   },
   "outputs": {
@@ -14,16 +22,23 @@
       "imports": [],
       "inputs": {
         "index.css": {
-          "bytesInOutput": 3184
+          "bytesInOutput": 3272
         }
       },
-      "bytes": 3185
+      "bytes": 3273
     },
     "../node_modules/.cache/snowpack/~~bundle~~/index.js": {
       "imports": [],
       "exports": [],
-      "inputs": {},
-      "bytes": 0
+      "inputs": {
+        "web_modules/three.js": {
+          "bytesInOutput": 555702
+        },
+        "index.js": {
+          "bytesInOutput": 399
+        }
+      },
+      "bytes": 556102
     }
   }
 }
