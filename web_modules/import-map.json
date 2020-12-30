@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "react": "./react.js",
-    "react-dom": "./react-dom.js",
-    "react-three-fiber": "./react-three-fiber.js"
-  }
-}

@@ -1,0 +1,120 @@
+{
+  "inputs": {
+    "index.css": {
+      "bytes": 10288,
+      "imports": []
+    },
+    "web_modules/common/index-e66f0a38.js": {
+      "bytes": 8994,
+      "imports": []
+    },
+    "web_modules/react.js": {
+      "bytes": 206,
+      "imports": [
+        {
+          "path": "web_modules/common/index-e66f0a38.js"
+        },
+        {
+          "path": "web_modules/common/index-e66f0a38.js"
+        }
+      ]
+    },
+    "web_modules/common/index-764d8727.js": {
+      "bytes": 4897,
+      "imports": [
+        {
+          "path": "web_modules/common/index-e66f0a38.js"
+        }
+      ]
+    },
+    "web_modules/react-dom.js": {
+      "bytes": 122726,
+      "imports": [
+        {
+          "path": "web_modules/common/index-e66f0a38.js"
+        },
+        {
+          "path": "web_modules/common/index-764d8727.js"
+        }
+      ]
+    },
+    "web_modules/react-three-fiber.js": {
+      "bytes": 1348183,
+      "imports": [
+        {
+          "path": "web_modules/common/index-e66f0a38.js"
+        },
+        {
+          "path": "web_modules/common/index-764d8727.js"
+        }
+      ]
+    },
+    "App/index.js": {
+      "bytes": 1441,
+      "imports": [
+        {
+          "path": "web_modules/react-dom.js"
+        },
+        {
+          "path": "web_modules/react.js"
+        },
+        {
+          "path": "web_modules/react-three-fiber.js"
+        }
+      ]
+    },
+    "index.js": {
+      "bytes": 229,
+      "imports": [
+        {
+          "path": "web_modules/react.js"
+        },
+        {
+          "path": "web_modules/react-dom.js"
+        },
+        {
+          "path": "App/index.js"
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "../node_modules/.cache/snowpack/~~bundle~~/index.css": {
+      "imports": [],
+      "inputs": {
+        "index.css": {
+          "bytesInOutput": 3040
+        }
+      },
+      "bytes": 3041
+    },
+    "../node_modules/.cache/snowpack/~~bundle~~/index.js": {
+      "imports": [],
+      "exports": [],
+      "inputs": {
+        "web_modules/react-three-fiber.js": {
+          "bytesInOutput": 736899
+        },
+        "web_modules/common/index-e66f0a38.js": {
+          "bytesInOutput": 7258
+        },
+        "web_modules/react.js": {
+          "bytesInOutput": 27
+        },
+        "web_modules/common/index-764d8727.js": {
+          "bytesInOutput": 4532
+        },
+        "web_modules/react-dom.js": {
+          "bytesInOutput": 119893
+        },
+        "App/index.js": {
+          "bytesInOutput": 692
+        },
+        "index.js": {
+          "bytesInOutput": 69
+        }
+      },
+      "bytes": 870287
+    }
+  }
+}
