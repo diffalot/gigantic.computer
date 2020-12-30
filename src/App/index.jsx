@@ -15,12 +15,19 @@ function Box(props) {
     mesh.current.rotation.x = mesh.current.rotation.y += 0.01;
   });
 
+  const setActiveAndLeave = (boolean) => {
+    setActive(boolean);
+    setTimeout(() => {
+      window.location = "https://diff.mx";
+    }, 300);
+  };
+
   return (
     <mesh
       {...props}
       ref={mesh}
       scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
-      onClick={(event) => setActive(!active)}
+      onClick={(event) => setActiveAndLeave(!active)}
       onPointerOver={(event) => setHover(true)}
       onPointerOut={(event) => setHover(false)}
     >
