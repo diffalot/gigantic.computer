@@ -501,24 +501,8 @@ video {
   height: auto;
 }
 
-.block {
-  display: block;
-}
-
-.flex {
-  display: flex;
-}
-
 .table {
   display: table;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.justify-around {
-  justify-content: space-around;
 }
 
 .h-screen {
@@ -583,6 +567,18 @@ video {
     transform: none;
     animation-timing-function: cubic-bezier(0,0,0.2,1);
   }
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  --tw-bg-opacity: 1;
+  background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
 }
 
 @media (min-width: 640px) {
