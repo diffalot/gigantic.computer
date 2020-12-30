@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build"
+    "build": "snowpack build",
+    "build-and-serve": "yarn build && npx http-server build"
   },
   "dependencies": {
     "@snowpack/plugin-postcss": "^1.0.11",
